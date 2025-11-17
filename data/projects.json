@@ -1,25 +1,42 @@
 [
   {
     "id": 1,
-    "title": "Portfolio Website",
-    "description": "A modern portfolio website built with Go and Tailwind CSS, featuring a clean design and responsive layout.",
-    "technologies": ["Go", "Tailwind CSS", "HTML"],
-    "github_url": "https://github.com/yourusername/portfolio",
-    "live_url": "https://yourportfolio.vercel.app"
+    "title": "FideFund",
+    "description": "A blockchain-based charity fundraising mobile app that enhances transparency and donor trust. Donors can browse organizations, track impact reports, and donate using MYR or crypto wallets.",
+    "technologies": ["Flutter", "Dart", "Blockchain", "Figma"],
+    "github_url": "https://github.com/NeoSockCheng",
+    "image_url": "/static/images/fidefund.png"
   },
   {
     "id": 2,
-    "title": "Task Manager API",
-    "description": "RESTful API for managing tasks with authentication, built using Go and PostgreSQL.",
-    "technologies": ["Go", "PostgreSQL", "JWT"],
-    "github_url": "https://github.com/yourusername/task-api"
+    "title": "GreenStep",
+    "description": "A mobile app supporting climate action by enabling users to set sustainability goals like carpooling and recycling. Features educational content, climate news, events, and rewards system.",
+    "technologies": ["Android Studio", "XML", "Java", "Firebase", "Figma"],
+    "github_url": "https://github.com/NeoSockCheng",
+    "image_url": "/static/images/greenstep.png"
   },
   {
     "id": 3,
-    "title": "Weather Dashboard",
-    "description": "Real-time weather dashboard that fetches data from external APIs and displays beautiful visualizations.",
-    "technologies": ["JavaScript", "HTML", "CSS", "OpenWeather API"],
-    "github_url": "https://github.com/yourusername/weather-dashboard",
-    "live_url": "https://weather-dashboard.vercel.app"
+    "title": "Mock WorldFirst",
+    "description": "A mock mobile application created as a learning exercise to explore iOS app development using Swift and UIKit in Xcode IDE.",
+    "technologies": ["Swift", "UIKit", "XCode"],
+    "github_url": "https://github.com/NeoSockCheng",
+    "image_url": "/static/images/mock-worldfirst.png"
+  },
+  {
+    "id": 4,
+    "title": "Spotify Depression Detection System",
+    "description": "An ML system using random forest algorithm that analyzes Spotify playlists to provide depression possibility predictions based on listening habits.",
+    "technologies": ["Python", "Machine Learning", "JavaScript", "Random Forest"],
+    "github_url": "https://github.com/NeoSockCheng",
+    "image_url": "/static/images/spotify-detection.png"
+  },
+  {
+    "id": 5,
+    "title": "The Battle of Red Cliff",
+    "description": "A game set against the backdrop of the Battle of Red Cliff, implementing features such as arrow borrowing and maze solving using data structures.",
+    "technologies": ["Java", "React", "Data Structures"],
+    "github_url": "https://github.com/NeoSockCheng",
+    "image_url": "/static/images/red-cliff.png"
   }
 ]
