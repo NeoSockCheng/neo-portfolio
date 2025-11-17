@@ -1,4 +1,4 @@
-package api
+package handler
 
 import (
 	"embed"
@@ -10,13 +10,13 @@ import (
 	"sync"
 )
 
-//go:embed ../web/templates/**/*.html
+//go:embed web/templates/**/*.html
 var templatesFS embed.FS
 
-//go:embed ../web/static/**/*
+//go:embed web/static
 var staticFS embed.FS
 
-//go:embed ../data/projects.json
+//go:embed data/projects.json
 var projectsData []byte
 
 var (
