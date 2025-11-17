@@ -1,0 +1,25 @@
+[
+  {
+    "id": 1,
+    "title": "Portfolio Website",
+    "description": "A modern portfolio website built with Go and Tailwind CSS, featuring a clean design and responsive layout.",
+    "technologies": ["Go", "Tailwind CSS", "HTML"],
+    "github_url": "https://github.com/yourusername/portfolio",
+    "live_url": "https://yourportfolio.vercel.app"
+  },
+  {
+    "id": 2,
+    "title": "Task Manager API",
+    "description": "RESTful API for managing tasks with authentication, built using Go and PostgreSQL.",
+    "technologies": ["Go", "PostgreSQL", "JWT"],
+    "github_url": "https://github.com/yourusername/task-api"
+  },
+  {
+    "id": 3,
+    "title": "Weather Dashboard",
+    "description": "Real-time weather dashboard that fetches data from external APIs and displays beautiful visualizations.",
+    "technologies": ["JavaScript", "HTML", "CSS", "OpenWeather API"],
+    "github_url": "https://github.com/yourusername/weather-dashboard",
+    "live_url": "https://weather-dashboard.vercel.app"
+  }
+]

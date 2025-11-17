@@ -1,0 +1,42 @@
+{{define "content"}}
+<div class="container mx-auto px-4 py-16">
+    <!-- Hero Section -->
+    <section class="text-center py-20">
+        <h1 class="text-5xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            Hi, I'm Your Name
+        </h1>
+        <p class="text-xl text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
+            {{.Description}}
+        </p>
+        <div class="flex gap-4 justify-center">
+            <a href="/projects" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition duration-300">
+                View My Work
+            </a>
+            <a href="/contact" class="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white font-semibold py-3 px-8 rounded-lg transition duration-300">
+                Get In Touch
+            </a>
+        </div>
+    </section>
+
+    <!-- Quick About Section -->
+    <section class="py-16">
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="text-center p-6">
+                <div class="text-4xl mb-4">💻</div>
+                <h3 class="text-xl font-semibold mb-2">Clean Code</h3>
+                <p class="text-gray-600 dark:text-gray-400">Writing maintainable and efficient code</p>
+            </div>
+            <div class="text-center p-6">
+                <div class="text-4xl mb-4">🚀</div>
+                <h3 class="text-xl font-semibold mb-2">Fast Performance</h3>
+                <p class="text-gray-600 dark:text-gray-400">Optimized for speed and scalability</p>
+            </div>
+            <div class="text-center p-6">
+                <div class="text-4xl mb-4">🎨</div>
+                <h3 class="text-xl font-semibold mb-2">Modern Design</h3>
+                <p class="text-gray-600 dark:text-gray-400">Beautiful and responsive interfaces</p>
+            </div>
+        </div>
+    </section>
+</div>
+{{end}}

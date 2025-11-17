@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "cmd/web/main.go",
+      "use": "@vercel/go"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/static/(.*)",
+      "dest": "/web/static/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/cmd/web/main.go"
+    }
+  ],
+  "env": {
+    "PORT": "8080"
+  }
+}
