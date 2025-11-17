@@ -1,14 +1,23 @@
 package api
 
 import (
+	"embed"
 	"encoding/json"
 	"html/template"
+	"io/fs"
 	"log"
 	"net/http"
-	"os"
-	"path/filepath"
 	"sync"
 )
+
+//go:embed ../web/templates/**/*.html
+var templatesFS embed.FS
+
+//go:embed ../web/static/**/*
+var staticFS embed.FS
+
+//go:embed ../data/projects.json
+var projectsData []byte
 
 var (
 	router    http.Handler
@@ -27,19 +36,9 @@ type Project struct {
 
 func initHandler() {
 	once.Do(func() {
-		// Parse templates
-		tmpl := template.New("")
-
-		// Parse all template files
-		layouts, _ := filepath.Glob("web/templates/layouts/*.html")
-		pages, _ := filepath.Glob("web/templates/pages/*.html")
-		partials, _ := filepath.Glob("web/templates/partials/*.html")
-
-		allFiles := append(layouts, pages...)
-		allFiles = append(allFiles, partials...)
-
+		// Parse templates from embedded filesystem
 		var err error
-		templates, err = tmpl.ParseFiles(allFiles...)
+		templates, err = template.ParseFS(templatesFS, "web/templates/layouts/*.html", "web/templates/pages/*.html", "web/templates/partials/*.html")
 		if err != nil {
 			log.Printf("Error parsing templates: %v", err)
 		}
@@ -47,8 +46,12 @@ func initHandler() {
 		// Setup router
 		mux := http.NewServeMux()
 
-		// Static files
-		mux.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("web/static"))))
+		// Static files from embedded filesystem
+		staticFiles, err := fs.Sub(staticFS, "web/static")
+		if err != nil {
+			log.Printf("Error setting up static files: %v", err)
+		}
+		mux.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.FS(staticFiles))))
 
 		// Routes
 		mux.HandleFunc("/", homeHandler)
@@ -92,12 +95,7 @@ func aboutHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func projectsHandler(w http.ResponseWriter, r *http.Request) {
-	// Read projects from JSON file
-	projectsData, err := os.ReadFile("data/projects.json")
-	if err != nil {
-		log.Printf("Error reading projects file: %v", err)
-	}
-
+	// Parse projects from embedded data
 	var projects []Project
 	if err := json.Unmarshal(projectsData, &projects); err != nil {
 		log.Printf("Error parsing projects JSON: %v", err)
