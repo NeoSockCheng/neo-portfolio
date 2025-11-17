@@ -10,13 +10,13 @@ import (
 	"sync"
 )
 
-//go:embed ../web/templates/layouts ../web/templates/pages ../web/templates/partials
+//go:embed web/templates/layouts web/templates/pages web/templates/partials
 var templatesFS embed.FS
 
-//go:embed ../web/static
+//go:embed web/static
 var staticFS embed.FS
 
-//go:embed ../data/projects.json
+//go:embed data/projects.json
 var projectsData []byte
 
 var (
