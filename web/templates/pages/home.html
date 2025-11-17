@@ -23,63 +23,93 @@
         }
     </style>
 </head>
-<body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+<body class="bg-slate-900 text-white">
     {{template "nav.html"}}
 
-    <main class="min-h-screen">
-        <div class="container mx-auto px-4 py-16">
-            <!-- Hero Section -->
-            <section class="text-center py-20">
-                <!-- Profile Photo Placeholder -->
-                <div class="mb-8 flex justify-center">
-                    <div class="relative">
-                        <div class="w-40 h-40 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white text-6xl font-bold shadow-xl">
-                            NS
-                        </div>
-                        <!-- You can replace this with: <img src="/static/images/profile.jpg" alt="Neo Sock Cheng" class="w-40 h-40 rounded-full shadow-xl object-cover"> -->
+    <main class="min-h-screen bg-gradient-to-b from-slate-900 via-purple-900 to-slate-900">
+        <!-- Hero Section -->
+        <section class="min-h-screen flex items-center justify-center px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <!-- Profile Photo -->
+                <div class="mb-8 flex justify-center animate-fadeIn">
+                    <div class="relative group">
+                        <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full blur opacity-25 group-hover:opacity-75 transition duration-1000"></div>
+                        <img src="/static/images/profile.png" alt="Neo Sock Cheng" class="relative w-32 h-32 rounded-full shadow-2xl object-cover">
                     </div>
                 </div>
 
-                <h1 class="text-5xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                    Hi, I'm Neo Sock Cheng
+                <h1 class="text-6xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent animate-fadeIn">
+                    Neo Sock Cheng
                 </h1>
-                <p class="text-xl text-gray-600 dark:text-gray-400 mb-4 max-w-2xl mx-auto">
-                    Computer Science Student (AI) | Full Stack & Mobile Developer
-                </p>
-                <p class="text-lg text-gray-500 dark:text-gray-500 mb-8 max-w-2xl mx-auto">
-                    Passionate about building innovative solutions with expertise in iOS, backend development, and full-stack web applications
-                </p>
-                <div class="flex gap-4 justify-center">
-                    <a href="/projects" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition duration-300">
-                        View My Work
-                    </a>
-                    <a href="/contact" class="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white font-semibold py-3 px-8 rounded-lg transition duration-300">
-                        Get In Touch
-                    </a>
-                </div>
-            </section>
 
-            <!-- Quick About Section -->
-            <section class="py-16">
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div class="text-center p-6">
-                        <div class="text-4xl mb-4">📱</div>
-                        <h3 class="text-xl font-semibold mb-2">iOS Development</h3>
-                        <p class="text-gray-600 dark:text-gray-400">Swift, UIKit, SwiftUI expertise from Ant International internship</p>
+                <p class="text-xl md:text-2xl text-gray-300 mb-12 font-light animate-fadeIn">
+                    AI Student • iOS Developer • Backend Engineer
+                </p>
+
+                <!-- CTA Buttons -->
+                <div class="flex gap-4 justify-center mb-16 animate-fadeIn">
+                    <a href="/projects" class="group relative px-8 py-4 bg-blue-600 text-white font-semibold rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-xl">
+                        <span class="relative z-10">View Projects</span>
+                        <div class="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    </a>
+                    <a href="/contact" class="px-8 py-4 border-2 border-purple-500 text-white font-semibold rounded-xl hover:bg-purple-600 hover:border-purple-600 transition-all duration-300 hover:scale-105">
+                        Contact Me
+                    </a>
+                </div>
+
+                <!-- Stats/Highlights -->
+                <div class="grid grid-cols-3 gap-8 max-w-2xl mx-auto animate-fadeIn">
+                    <div class="text-center">
+                        <div class="text-3xl md:text-4xl font-bold text-blue-600 mb-2">3</div>
+                        <div class="text-sm text-gray-400">Internships</div>
                     </div>
-                    <div class="text-center p-6">
-                        <div class="text-4xl mb-4">⚙️</div>
-                        <h3 class="text-xl font-semibold mb-2">Backend Engineering</h3>
-                        <p class="text-gray-600 dark:text-gray-400">Golang, Terraform, AWS, CI/CD pipelines</p>
+                    <div class="text-center">
+                        <div class="text-3xl md:text-4xl font-bold text-purple-400 mb-2">5+</div>
+                        <div class="text-sm text-gray-400">Projects</div>
                     </div>
-                    <div class="text-center p-6">
-                        <div class="text-4xl mb-4">🌐</div>
-                        <h3 class="text-xl font-semibold mb-2">Full Stack Web</h3>
-                        <p class="text-gray-600 dark:text-gray-400">PHP, React, MySQL, AWS cloud services</p>
+                    <div class="text-center">
+                        <div class="text-3xl md:text-4xl font-bold text-pink-400 mb-2">3.87</div>
+                        <div class="text-sm text-gray-400">CGPA</div>
                     </div>
                 </div>
-            </section>
-        </div>
+            </div>
+        </section>
+
+        <!-- Tech Stack Showcase -->
+        <section class="py-20 px-4">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-16 text-white">Tech Stack</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="group bg-slate-800/50 backdrop-blur-sm border border-slate-700 p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 hover:border-blue-500">
+                        <div class="text-5xl mb-4">📱</div>
+                        <h3 class="text-xl font-semibold mb-3 text-white">iOS Development</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs bg-blue-500/20 text-blue-300 px-3 py-1 rounded-full border border-blue-500/30">Swift</span>
+                            <span class="text-xs bg-blue-500/20 text-blue-300 px-3 py-1 rounded-full border border-blue-500/30">UIKit</span>
+                            <span class="text-xs bg-blue-500/20 text-blue-300 px-3 py-1 rounded-full border border-blue-500/30">SwiftUI</span>
+                        </div>
+                    </div>
+                    <div class="group bg-slate-800/50 backdrop-blur-sm border border-slate-700 p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 hover:border-green-500">
+                        <div class="text-5xl mb-4">⚙️</div>
+                        <h3 class="text-xl font-semibold mb-3 text-white">Backend</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs bg-green-500/20 text-green-300 px-3 py-1 rounded-full border border-green-500/30">Golang</span>
+                            <span class="text-xs bg-green-500/20 text-green-300 px-3 py-1 rounded-full border border-green-500/30">AWS</span>
+                            <span class="text-xs bg-green-500/20 text-green-300 px-3 py-1 rounded-full border border-green-500/30">Terraform</span>
+                        </div>
+                    </div>
+                    <div class="group bg-slate-800/50 backdrop-blur-sm border border-slate-700 p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 hover:border-purple-500">
+                        <div class="text-5xl mb-4">🌐</div>
+                        <h3 class="text-xl font-semibold mb-3 text-white">Full Stack</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs bg-purple-500/20 text-purple-300 px-3 py-1 rounded-full border border-purple-500/30">React</span>
+                            <span class="text-xs bg-purple-500/20 text-purple-300 px-3 py-1 rounded-full border border-purple-500/30">PHP</span>
+                            <span class="text-xs bg-purple-500/20 text-purple-300 px-3 py-1 rounded-full border border-purple-500/30">MySQL</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     {{template "footer.html"}}

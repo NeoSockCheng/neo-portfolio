@@ -9,7 +9,7 @@ html {
 @keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(30px);
     }
     to {
         opacity: 1;
@@ -17,9 +17,43 @@ html {
     }
 }
 
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.animate-fadeIn {
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+.animate-slideIn {
+    animation: slideIn 0.6s ease-out forwards;
+}
+
 .fade-in {
     animation: fadeIn 0.5s ease-out;
 }
+
+/* Stagger animations */
+.animate-fadeIn:nth-child(1) { animation-delay: 0.1s; opacity: 0; }
+.animate-fadeIn:nth-child(2) { animation-delay: 0.2s; opacity: 0; }
+.animate-fadeIn:nth-child(3) { animation-delay: 0.3s; opacity: 0; }
+.animate-fadeIn:nth-child(4) { animation-delay: 0.4s; opacity: 0; }
 
 /* Custom focus styles */
 button:focus,
@@ -30,11 +64,19 @@ textarea:focus {
     outline-offset: 2px;
 }
 
-/* Smooth transitions */
-* {
-    transition-property: color, background-color, border-color;
-    transition-duration: 200ms;
-    transition-timing-function: ease-in-out;
+/* Glassmorphism effect */
+.glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Gradient text */
+.gradient-text {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 /* Code blocks if needed */
