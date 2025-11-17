@@ -1,8 +1,6 @@
 package main
 
 import (
-	"embed"
-	"fmt"
 	"log"
 	"net/http"
 	"os"
@@ -13,9 +11,6 @@ import (
 	"portfolio/internal/config"
 	"portfolio/internal/handlers"
 )
-
-//go:embed ../../web/templates/* ../../web/static/*
-var embeddedFiles embed.FS
 
 func main() {
 	// Load configuration
@@ -30,11 +25,10 @@ func main() {
 	r.Use(middleware.Compress(5))
 
 	// Static file server
-	staticFS := http.FS(embeddedFiles)
 	r.Handle("/static/*", http.StripPrefix("/static/", http.FileServer(http.Dir("web/static"))))
 
 	// Initialize handlers
-	h := handlers.New(embeddedFiles)
+	h := handlers.New()
 
 	// Routes
 	r.Get("/", h.Home)
@@ -54,6 +48,4 @@ func main() {
 	if err := http.ListenAndServe(":"+port, r); err != nil {
 		log.Fatal(err)
 	}
-
-	_ = staticFS // Keep for production builds
 }

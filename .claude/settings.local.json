@@ -4,7 +4,8 @@
       "Bash(mkdir:*)",
       "Bash(go mod init:*)",
       "Bash(echo:*)",
-      "Bash(\"C:\\Users\\User\\Projects\\portfolio\\web\\static\\images\\.gitkeep\")"
+      "Bash(\"C:\\Users\\User\\Projects\\portfolio\\web\\static\\images\\.gitkeep\")",
+      "Bash(go run:*)"
     ],
     "deny": [],
     "ask": []

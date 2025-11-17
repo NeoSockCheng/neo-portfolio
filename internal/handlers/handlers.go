@@ -1,13 +1,12 @@
 package handlers
 
 import (
-	"embed"
 	"encoding/json"
 	"html/template"
-	"io/fs"
 	"log"
 	"net/http"
 	"os"
+	"path/filepath"
 
 	"portfolio/internal/models"
 )
@@ -16,15 +15,25 @@ type Handler struct {
 	templates *template.Template
 }
 
-func New(embeddedFiles embed.FS) *Handler {
-	// Parse all templates
-	tmpl, err := template.ParseFS(embeddedFiles, "web/templates/**/*.html")
+func New() *Handler {
+	// Parse all templates from disk
+	tmpl := template.New("")
+
+	// Parse all template files
+	layouts, _ := filepath.Glob("web/templates/layouts/*.html")
+	pages, _ := filepath.Glob("web/templates/pages/*.html")
+	partials, _ := filepath.Glob("web/templates/partials/*.html")
+
+	allFiles := append(layouts, pages...)
+	allFiles = append(allFiles, partials...)
+
+	if len(allFiles) == 0 {
+		log.Fatal("No template files found")
+	}
+
+	tmpl, err := tmpl.ParseFiles(allFiles...)
 	if err != nil {
-		// Fallback to local files for development
-		tmpl, err = template.ParseGlob("web/templates/**/*.html")
-		if err != nil {
-			log.Fatal("Error parsing templates:", err)
-		}
+		log.Fatal("Error parsing templates:", err)
 	}
 
 	return &Handler{
@@ -49,10 +58,4 @@ func loadProjects() ([]models.Project, error) {
 	var projects []models.Project
 	err = json.Unmarshal(data, &projects)
 	return projects, err
-}
-
-// Helper to check if templates are embedded
-func (h *Handler) isEmbedded(embeddedFiles embed.FS) bool {
-	_, err := fs.Stat(embeddedFiles, "web/templates")
-	return err == nil
 }
